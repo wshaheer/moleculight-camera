@@ -81,18 +81,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
-
-        cam0?.shouldStartPreview()
-        cam1?.shouldStartPreview()
-    }
-
     override fun onPause() {
         super.onPause()
 
         cam0?.shouldStopPreview()
         cam1?.shouldStopPreview()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        cam0?.shouldStartPreview()
+        cam1?.shouldStartPreview()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -179,7 +179,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun didGrantPermissions() {
-        val directory = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES).toString())
+        val directory = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES).toString(), "/MolecuLight")
 
         if (!directory.exists()) {
             directory.mkdirs()

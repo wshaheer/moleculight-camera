@@ -2,13 +2,14 @@ package com.moleculight.assessment.services
 
 import android.media.Image
 import android.media.MediaScannerConnection
+import android.net.Uri
 import android.util.Log
 import com.moleculight.assessment.App
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-class ImageService(
+class FileService(
     private val image: Image,
     private val file: File
 ) : Runnable {
@@ -39,9 +40,7 @@ class ImageService(
                 App.instance,
                 arrayOf(file.absolutePath),
                 null
-            ) { path, uri ->
-                TODO("Not yet implemented")
-            }
+            ) { path, uri -> Log.i("FileService", "onScanCompleted: For path: $path, uri: $uri") }
         }
     }
 

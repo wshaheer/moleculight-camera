@@ -31,11 +31,11 @@ import kotlin.math.roundToInt
 class CameraService(
     val id: String,
     val thread: String,
-    val textureView: ResizableTextureView,
+    val output: ResizableTextureView,
     val listener: ICamera
 ) {
     val activity: Activity
-    get() = textureView.context as Activity
+    get() = output.context as Activity
 
     var elapsedFrames = 0
     var elapsedSeconds = SystemClock.elapsedRealtime()
@@ -44,12 +44,12 @@ class CameraService(
     var state = CameraState.IDLE
         set(value) {
             field = value
-            textureView.post {
+            output.post {
                 listener.didChangeState(this@CameraService, value)
             }
         }
 
-    private val viewListener = object : TextureView.SurfaceTextureListener {
+    private val observer = object : TextureView.SurfaceTextureListener {
         override fun onSurfaceTextureAvailable(surface: SurfaceTexture, width: Int, height: Int) {
             openCamera(width, height)
         }
@@ -67,7 +67,7 @@ class CameraService(
             val currentFrames = (1000 / (currentSeconds - elapsedSeconds).toFloat()).roundToInt()
 
             if (currentFrames != elapsedFrames) {
-                textureView.post { listener.didChangeFrames(this@CameraService, currentFrames) }
+                output.post { listener.didChangeFrames(this@CameraService, currentFrames) }
             }
 
             elapsedSeconds = currentSeconds
@@ -75,21 +75,26 @@ class CameraService(
         }
     }
 
-    private val cameraStateCallback = object : CameraDevice.StateCallback() {
+    private val stateCallback = object : CameraDevice.StateCallback() {
         override fun onOpened(device: CameraDevice) {
-            cameraLock.release()
-
             cameraDevice = device
+
+            Log.i("CameraService", "onOpened: Camera opened")
+
+            cameraLock.release()
             setCaptureSession()
         }
 
         override fun onClosed(camera: CameraDevice) {
             super.onClosed(camera)
+            Log.i("CameraService", "onClosed: Camera closed")
         }
 
         override fun onDisconnected(camera: CameraDevice) {
             cameraLock.release()
             cameraDevice?.close()
+
+            Log.i("CameraService", "onDisconnected: Camera disconnected")
 
             cameraDevice = null
         }
@@ -121,7 +126,7 @@ class CameraService(
         private fun process(result: CaptureResult) {
             when (state) {
                 CameraState.FOCUS -> capture(result)
-                CameraState.PRECAPTURE -> {
+                CameraState.PRE_CAPTURE -> {
                     val exposure = result.get(CaptureResult.CONTROL_AE_STATE)
 
                     if (exposure == null ||
@@ -180,11 +185,11 @@ class CameraService(
 
     private val imageListener = ImageReader.OnImageAvailableListener {
         file = File(
-            Environment.DIRECTORY_PICTURES,
-            "Assessment/CAM${id}-${FILE_NAME.format(Calendar.getInstance().time)}.jpeg"
+            activity.applicationContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES),
+            "MolecuLight/CAM${id}-${FILE_NAME.format(Calendar.getInstance().time)}.jpeg"
         )
 
-        serviceHandler?.post(ImageService(it.acquireNextImage(), file))
+        serviceHandler?.post(FileService(it.acquireNextImage(), file))
     }
 
 
@@ -219,14 +224,14 @@ class CameraService(
 
         try {
             if (!cameraLock.tryAcquire(3000, TimeUnit.MILLISECONDS)) {
-                throw RuntimeException("Lock timed out while waiting for camera")
+                throw RuntimeException("Camera service thread timeout")
             }
 
-            manager.openCamera(id, cameraStateCallback, serviceHandler)
+            manager.openCamera(id, stateCallback, serviceHandler)
         } catch (e: CameraAccessException) {
             // TODO: 2021-06-23
         } catch (e: InterruptedException) {
-            throw RuntimeException("Lock interrupted while opening camera")
+            throw RuntimeException("Camera service thread interruption")
         }
     }
 
@@ -241,7 +246,7 @@ class CameraService(
             cameraDevice = null
             imageReader = null
         } catch (e: InterruptedException) {
-            throw RuntimeException("Lock interrupted while closing camera")
+            throw RuntimeException("Camera service thread interruption")
         } finally {
             cameraLock.release()
         }
@@ -254,7 +259,7 @@ class CameraService(
             requestBuilder.set(CaptureRequest.CONTROL_AF_TRIGGER, CaptureRequest.CONTROL_AF_TRIGGER_START)
             captureSession?.capture(requestBuilder.build(), captureCallback, serviceHandler)
         } catch (e: CameraAccessException) {
-            Log.e("CameraService", "shouldLockFocus: Camera access failed", e)
+            Log.e("CameraService", "shouldLockFocus: Camera access error", e)
         }
     }
 
@@ -266,7 +271,7 @@ class CameraService(
             state = CameraState.PREVIEW
             captureSession?.setRepeatingRequest(previewRequest, captureCallback, serviceHandler)
         } catch (e: CameraAccessException) {
-            Log.e("CameraService", "shouldUnlockFocus: Camera access failed", e)
+            Log.e("CameraService", "shouldUnlockFocus: Camera access error", e)
         }
     }
 
@@ -300,7 +305,7 @@ class CameraService(
                 ) {
                     super.onCaptureCompleted(session, request, result)
                     shouldUnlockFocus()
-                    textureView.post { listener.didSaveImage(this@CameraService, file) }
+                    output.post { listener.didSaveImage(this@CameraService, file) }
                 }
             }
 
@@ -320,10 +325,10 @@ class CameraService(
         serviceThread = HandlerThread(thread).also { it.start() }
         serviceHandler = Handler(serviceThread?.looper!!)
 
-        textureView.surfaceTextureListener = viewListener
+        output.surfaceTextureListener = observer
 
-        if (textureView.isAvailable) {
-            openCamera(textureView.width, textureView.height)
+        if (output.isAvailable) {
+            openCamera(output.width, output.height)
         }
     }
 
@@ -348,7 +353,7 @@ class CameraService(
             serviceThread = null
             serviceHandler = null
         } catch (e: InterruptedException) {
-            Log.e("CameraService", "shouldStopPreview: Service thread interrupted", e)
+            Log.e("CameraService", "shouldStopPreview: thread interruption", e)
         }
     }
 
@@ -359,16 +364,16 @@ class CameraService(
                 CaptureRequest.CONTROL_AE_PRECAPTURE_TRIGGER_START
             )
 
-            state = CameraState.PRECAPTURE
+            state = CameraState.PRE_CAPTURE
             captureSession?.capture(requestBuilder.build(), captureCallback, serviceHandler)
         } catch (e: CameraAccessException) {
-            // TODO: 2021-06-23  
+            Log.e("CameraService", "setCaptureSequence: Camera access error", e)
         }
     }
 
     private fun setCaptureSession() {
         try {
-            val texture = textureView.surfaceTexture
+            val texture = output.surfaceTexture
 
             texture?.setDefaultBufferSize(previewSize.width, previewSize.height)
 
@@ -406,7 +411,7 @@ class CameraService(
                 null
             )
         } catch (e: CameraAccessException) {
-            // TODO: 2021-06-23
+            Log.e("CameraService", "setCaptureSession: Camera access error", e)
         }
     }
 
@@ -432,7 +437,7 @@ class CameraService(
             matrix.postRotate(180f, centerX, centerY)
         }
 
-        textureView.setTransform(matrix)
+        output.setTransform(matrix)
     }
 
     private fun setPreviewOutput(width: Int, height: Int) {
@@ -477,12 +482,12 @@ class CameraService(
                     imageSize
                 )
 
-                textureView.setAspectRatio(previewSize.width, previewSize.height)
+                output.setAspectRatio(previewSize.width, previewSize.height)
 
                 return
             }
         } catch (e: CameraAccessException) {
-            //TODO:
+            Log.e("CameraService", "setPreviewOutput: Camera access error", e)
         } catch (e: NullPointerException) {
             //TODO:
         }
