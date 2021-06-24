@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assessment</string>
+    <string name="camera_view_state">CAM#%1$s: IDLE</string>
+    <string name="camera_view_frames">CAM#%1$s: %2$d FPS</string>
+    <string name="camera_capture_path">CAM#%1$s: Captured image saved at %2$s</string>
+    <string name="camera_button_alt">Capture</string>
+</resources>

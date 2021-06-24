@@ -1,0 +1,71 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.moleculight.assessment.camera////PointingToDeclaration/app/com.moleculight.assessment.camera/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraService.Companion///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/-companion/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraService///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/CameraService/#kotlin.String#android.view.TextureView#kotlin.String#com.moleculight.assessment.camera.ICamera/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/-camera-service.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/activity/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/activity.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/closeCamera/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/close-camera.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/elapsedFrames/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/elapsed-frames.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/elapsedSeconds/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/elapsed-seconds.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/id/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/id.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/listener/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/listener.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/openCamera/#kotlin.Int#kotlin.Int/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/open-camera.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/previewing/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/previewing.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/shouldCaptureImage/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/should-capture-image.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/shouldLockFocus/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/should-lock-focus.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/shouldStartPreview/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/should-start-preview.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/shouldStopPreview/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/should-stop-preview.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/shouldUnlockFocus/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/should-unlock-focus.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/shouldUpdatePreview/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/should-update-preview.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/state.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/thread/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/thread.html
+$dokka.location:com.moleculight.assessment.camera/CameraService/view/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-service/view.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.CAPTURE///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-c-a-p-t-u-r-e/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.CAPTURE/name/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-c-a-p-t-u-r-e/name.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.CAPTURE/ordinal/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-c-a-p-t-u-r-e/ordinal.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.CAPTURE/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-c-a-p-t-u-r-e/state.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.EXPOSURE///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-e-x-p-o-s-u-r-e/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.EXPOSURE/name/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-e-x-p-o-s-u-r-e/name.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.EXPOSURE/ordinal/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-e-x-p-o-s-u-r-e/ordinal.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.EXPOSURE/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-e-x-p-o-s-u-r-e/state.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.FOCUS///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-f-o-c-u-s/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.FOCUS/name/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-f-o-c-u-s/name.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.FOCUS/ordinal/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-f-o-c-u-s/ordinal.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.FOCUS/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-f-o-c-u-s/state.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.IDLE///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-i-d-l-e/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.IDLE/name/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-i-d-l-e/name.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.IDLE/ordinal/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-i-d-l-e/ordinal.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.IDLE/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-i-d-l-e/state.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PRECAPTURE///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-c-a-p-t-u-r-e/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PRECAPTURE/name/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-c-a-p-t-u-r-e/name.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PRECAPTURE/ordinal/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-c-a-p-t-u-r-e/ordinal.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PRECAPTURE/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-c-a-p-t-u-r-e/state.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PREVIEW///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-v-i-e-w/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PREVIEW/name/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-v-i-e-w/name.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PREVIEW/ordinal/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-v-i-e-w/ordinal.html
+$dokka.location:com.moleculight.assessment.camera/CameraState.PREVIEW/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/-p-r-e-v-i-e-w/state.html
+$dokka.location:com.moleculight.assessment.camera/CameraState///PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/index.html
+$dokka.location:com.moleculight.assessment.camera/CameraState/state/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-camera-state/state.html
+$dokka.location:com.moleculight.assessment.camera/ICamera///PointingToDeclaration/app/com.moleculight.assessment.camera/-i-camera/index.html
+$dokka.location:com.moleculight.assessment.camera/ICamera/didChangeFrames/#com.moleculight.assessment.camera.CameraService#kotlin.Int/PointingToDeclaration/app/com.moleculight.assessment.camera/-i-camera/did-change-frames.html
+$dokka.location:com.moleculight.assessment.camera/ICamera/didChangeState/#com.moleculight.assessment.camera.CameraService#com.moleculight.assessment.camera.CameraState/PointingToDeclaration/app/com.moleculight.assessment.camera/-i-camera/did-change-state.html
+$dokka.location:com.moleculight.assessment.camera/ICamera/didSaveImage/#com.moleculight.assessment.camera.CameraService#java.io.File/PointingToDeclaration/app/com.moleculight.assessment.camera/-i-camera/did-save-image.html
+$dokka.location:com.moleculight.assessment.camera/ImageService///PointingToDeclaration/app/com.moleculight.assessment.camera/-image-service/index.html
+$dokka.location:com.moleculight.assessment.camera/ImageService/ImageService/#android.media.Image#java.io.File#android.content.Context/PointingToDeclaration/app/com.moleculight.assessment.camera/-image-service/-image-service.html
+$dokka.location:com.moleculight.assessment.camera/ImageService/run/#/PointingToDeclaration/app/com.moleculight.assessment.camera/-image-service/run.html
+$dokka.location:com.moleculight.assessment.utils////PointingToDeclaration/app/com.moleculight.assessment.utils/index.html
+$dokka.location:com.moleculight.assessment.utils/ComparableArea///PointingToDeclaration/app/com.moleculight.assessment.utils/-comparable-area/index.html
+$dokka.location:com.moleculight.assessment.utils/ComparableArea/ComparableArea/#/PointingToDeclaration/app/com.moleculight.assessment.utils/-comparable-area/-comparable-area.html
+$dokka.location:com.moleculight.assessment.utils/ComparableArea/compare/#android.util.Size#android.util.Size/PointingToDeclaration/app/com.moleculight.assessment.utils/-comparable-area/compare.html
+$dokka.location:com.moleculight.assessment////PointingToDeclaration/app/com.moleculight.assessment/index.html
+$dokka.location:com.moleculight.assessment/MainActivity.Companion///PointingToDeclaration/app/com.moleculight.assessment/-main-activity/-companion/index.html
+$dokka.location:com.moleculight.assessment/MainActivity///PointingToDeclaration/app/com.moleculight.assessment/-main-activity/index.html
+$dokka.location:com.moleculight.assessment/MainActivity/MainActivity/#/PointingToDeclaration/app/com.moleculight.assessment/-main-activity/-main-activity.html
+$dokka.location:com.moleculight.assessment/MainActivity/initialize/#/PointingToDeclaration/app/com.moleculight.assessment/-main-activity/initialize.html
+$dokka.location:com.moleculight.assessment/MainActivity/onRequestPermissionsResult/#kotlin.Int#kotlin.Array[kotlin.String]#kotlin.IntArray/PointingToDeclaration/app/com.moleculight.assessment/-main-activity/on-request-permissions-result.html
+$dokka.location:com.moleculight.assessment/MainActivity/toggle/#com.moleculight.assessment.camera.CameraService?/PointingToDeclaration/app/com.moleculight.assessment/-main-activity/toggle.html
+com.moleculight.assessment
+com.moleculight.assessment.camera
+com.moleculight.assessment.utils
+

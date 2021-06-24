@@ -1,0 +1,8 @@
+$dokka.format:javadoc-v1
+$dokka.linkExtension:html
+$dokka.location:com.moleculight.assessment.camera/CameraService.Companion///PointingToDeclaration/com/moleculight/assessment/camera/CameraService.Companion.html
+$dokka.location:com.moleculight.assessment/MainActivity.Companion///PointingToDeclaration/com/moleculight/assessment/MainActivity.Companion.html
+com.moleculight.assessment
+com.moleculight.assessment.camera
+com.moleculight.assessment.utils
+
